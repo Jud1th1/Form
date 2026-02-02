@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Basics</title>
+</head>
+<body>
+
+    <h1>Form Basics</h1>
+
+    <form method="post" action="processor.php">
+        <label for="fname">First Name</label>
+        <!-- for attribute has to be equal to the id attribute of  input element -->
+        <input type="text" id="fname" placeholder="Judith">
+
+        <label for="favcolor">Favorite Color</label>
+        <input type="color" name="favcolor" id="favcolor">
+
+        <!-- For radio buttons it is best practice to put the label AFTER input element -->
+        <input type="radio" name="spam" id="">
+         <label></label>
+
+         <input>
+         <label></label>
+
+    </form>    
+</body>
+</html>
