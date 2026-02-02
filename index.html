@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Basics</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -17,13 +18,43 @@
         <label for="favcolor">Favorite Color</label>
         <input type="color" name="favcolor" id="favcolor">
 
-        <!-- For radio buttons it is best practice to put the label AFTER input element -->
-        <input type="radio" name="spam" id="">
-         <label></label>
+        <fieldset>
+            <!-- For radio buttons it is best practice to put the label AFTER input element -->
+            <input type="radio" name="spam" id="spam-yes" value="yes">
+            <label for="spam-yes">Yes, I want to receive spam</label>
 
-         <input>
-         <label></label>
+            <input type="radio" name="spam" id="spam-no" value="no" checked>
+            <label for="spam-no">No, I don't want to receive spam</label>
+        </fieldset>  
 
-    </form>    
+        <fieldset>
+            <label>Favorite Aniamls</label>
+            <input type="checkbox" name="cat" id="cat" value="cat">
+            <label for="cat">Cat</label>
+
+            <input type="checkbox" name="dog" id="dog" value="dog">
+            <label for="dog">Dog</label>
+
+            <input type="checkbox" name="turtle" id="turtle" value="turtle">
+            <label for="turtle">Turtle</label>
+        </fieldset>
+
+
+        <label for="cheese">Favorite Cheese</label>
+        ,<select name="cheese" id="cheese">
+            <opttion>--------</opttion>
+            <option value="american">American</option>
+            <option value="swiss">Swiss</option>
+            <option value="cheddar">Cheddar</option>
+            <option value="pepperjack">Pepperjack</option>
+        </select>
+
+
+        <label for="comment">Comments</label>
+        <textarea name="comment" id="comment" rows="10" cols="30" placeholder="Your comments here..."></textarea>
+   
+   
+        <input type="Submit" name="Submit" id="Submit" Value="Send Form">
+    </form>  
 </body>
 </html>

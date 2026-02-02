@@ -1,0 +1,81 @@
+/* styles for Form Basics - simple, lightweight */
+:root{
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #6b7280;
+  --input: #f3f4f6;
+  --border: #e5e7eb;
+  --danger: #ef4444;
+  --success: #16a34a;
+}
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #111827;
+  line-height: 1.4;
+  padding: 2rem;
+}
+
+h1{margin:0 0 1rem; font-size:1.6rem}
+
+form{
+  background: var(--card);
+  max-width: 720px;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.05);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: .75rem;
+}
+
+label{font-weight:600; font-size:.95rem; color:#111827; margin-bottom:0.25rem; display:block}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="color"], input[type="date"], textarea, select{
+  width:100%;
+  padding: .5rem .75rem;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:var(--input);
+  font-size:.95rem;
+  color:#111827;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+
+.form-row{display:flex; gap: .75rem}
+.form-row > * {flex:1}
+
+small{display:block; color:var(--muted); margin-top:.25rem}
+
+button, input[type="submit"]{
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: .6rem .9rem;
+  border-radius:6px;
+  cursor: pointer;
+  font-weight:600;
+}
+
+button:hover, input[type="submit"]:hover{background:#1d4ed8}
+button:focus{outline:none; box-shadow:0 0 0 3px rgba(37,99,235,0.18)}
+
+input[type="radio"], input[type="checkbox"]{margin-right:.4rem}
+
+@media (max-width:520px){
+  body{padding:1rem}
+  form{padding:1rem}
+  .form-row{flex-direction:column}
+}
+
+/* utility classes */
+.error{border-color:var(--danger)}
+.success{border-color:var(--success)}
