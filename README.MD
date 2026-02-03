@@ -1,113 +1,100 @@
-# Frontend Mentor - Stats preview card component solution
-
-This is a solution to the [Stats preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/stats-preview-card-component-8JqbgoU62). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+# Form Notes
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Form Basics](#Form-Basics)
+  - [Form Attributes](#form-attributes)
+  - [Form Elements](#form-elements)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-## Overview
+## Form Basics
+### Form Attributes
+- **Method**: specifies how form data should be sent to the server. 
+  - Form data can be sent as URL variables <span style="color:pink"> **(method="get")** </span> or as post transction <span style="color:pink"> **(method = "post")** </span>
 
-- I started off by adding an external stylesheet and removing the internal stylesheet that was in the head.
-- creating a root element for the colors and fonts I would be using throughout the document.
+- **Action**: defines action to be performed when the form is submitted. 
 
-### The challenge
+i.e
+```html  
+<form method="post" action="processor.php"></form>
+```
+---
+- **Target**: specifies where to display the response received after subbmitting the form 
 
-Users should be able to:
-
-- View the optimal layout depending on their device's screen size
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
-
-### Built with
-
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
+i.e
 ```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+<form action="processor.php" target="_blank"></form>
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+| Value | Description |
+|--------|------------|
+| _blank  | Response displays in new window or tab |
+| _self | Response displays in current window |
+| _parent | Response displays in parent frame|
+| _top | Response displays in full body of the window |
+| _framename_ | Response displays in named iframe |
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+---
 
-### Continued development
+## Form Elements
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- <span style="color:pink"> **< input >** </span> Defines an input control
+- <span style="color:pink"> **< label >** </span> 	Defines a label for an <span style="color:pink"> **< input >** </span>  element
+  - The <span style="color:salmon"> **for** </span> attribute of the <span style="color:pink"> **< label >** </span>  tag shold be equal to the <span style="color:salmon"> **id** </span> attribute of the <span style="color:pink"> **< input >** </span>  element to bind them.
+- <span style="color:pink"> **< select >** </span> Defines a drop-down list
+- <span style="color:pink"> **< option >** </span> 
+Defines an option in a drop-down list
+  - Use **mulitple** attribute to allow more than one selection
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+  i.e
+  ```html
+  <label for="pets">Choose a pet:</label>
+  <select id="cars" name="cars">
+    <option value="cat">Cat</option>
+    <option value="dog">Dog</option>
+    <option value="bird">Bird</option>
+  </select>
+  ```
+- <span style="color:pink"> **< optgroup >** </span> 
+Defines a group of related options in drop down list
+- <span style="color:pink"> **< textarea >** </span> 
+Defines a multiline input control
+  - The <span style="color:salmon"> **rows** </span> attribute specifies the visible number of lines in a text area.
+  - The <span style="color:salmon"> **cols** </span> 
+ attribute specifies the visible width of a text area.
+  ```html
+  <textarea name="message" rows="5" cols="10">
+    Leave us a message!
+  </textarea>
+  ```
 
-### Useful resources
+- <span style="color:pink"> **< button >** </span> 
+Defines a clickable button
+- <span style="color:pink"> **< fieldset >** </span> 
+Used to group related data
+- <span style="color:pink"> **< legend >** </span> 
+Defines a caption for a <span style="color:pink"> **< fieldset >** </span>  element
+  ``` html
+   <fieldset>
+      <legend>Person:</legend>
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value="John"><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  </fieldset>
+  ```
+- <span style="color:pink"> **< datalist >** </span> 
+Specifies a list of pre-defined options for input controls
+  - The <span style="color:salmon"> **list** </span> attribute of the <span style="color:pink"> **< input >** </span> element, must refer to the <span style="color:salmon"> **id** </span> attribute of the <span style="color:pink"> **< datalist >** </span> element.
+  ```html
+    <input list="pets">
+    <datalist id="pets">
+      <option value="cat">
+      <option value="dog">
+      <option value="bird">
+    </datalist>
+  ```
+- <span style="color:pink"> **< output >** </span> 
+Defines the result of a calculation
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
