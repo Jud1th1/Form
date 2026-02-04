@@ -12,8 +12,15 @@
 ### Form Attributes
 
 - **Method**: specifies how form data should be sent to the server.
-  - Form data can be sent as URL variables <span style="color:pink"> **(method="get")** </span> or as post transction <span style="color:pink"> **(method = "post")** </span>
-
+  - Form data can be sent as URL variables <span style="color:pink"> **(method="get")** </span> or as post transaction <span style="color:pink"> **(method = "post")** </span>
+    - GET sends form data as URL parameters, making it visible in the address bar. It can be cached, bookmarked and remain in browser history
+    - GET request should not be used with sensitive data
+    - GET request are only used to request data (not modify)
+    - GET is typically used for retrieving data, like search queries.
+    - POST sends form data in the request body, keeping it out of the URL.
+    - POST request can not be cached, bookmarked or remain in history
+    - POST request do not have a data length restriction
+    - POST is for form submissions or uploads and is more appropriate for sensitive information. (Not inherently secure but less visible )
 - **Action**: defines action to be performed when the form is submitted.
 
 i.e
@@ -32,13 +39,13 @@ i.e
 <form action="processor.php" target="_blank"></form>
 ```
 
-| Value       | Description                                  |
-| ----------- | -------------------------------------------- |
-| \_blank     | Response displays in new window or tab       |
-| \_self      | Response displays in current window          |
-| \_parent    | Response displays in parent frame            |
-| \_top       | Response displays in full body of the window |
-| _framename_ | Response displays in named iframe            |
+| Value       | Description                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------- |
+| \_blank     | Response displays in new window or tab (can be a security concern without rel="noopener noreferrer") |
+| \_self      | Response displays in current window                                                                  |
+| \_parent    | Response displays in parent frame                                                                    |
+| \_top       | Response displays in full body of the window                                                         |
+| _framename_ | Response displays in named iframe                                                                    |
 
 ---
 
@@ -46,11 +53,13 @@ i.e
 
 - <span style="color:pink"> **< input >** </span> Defines an input control
 - <span style="color:pink"> **< label >** </span> Defines a label for an <span style="color:pink"> **< input >** </span> element
-  - The <span style="color:salmon"> **for** </span> attribute of the <span style="color:pink"> **< label >** </span> tag shold be equal to the <span style="color:salmon"> **id** </span> attribute of the <span style="color:pink"> **< input >** </span> element to bind them.
+  - The <span style="color:salmon"> **for** </span> attribute of the <span style="color:pink"> **< label >** </span> tag should be equal to the <span style="color:salmon"> **id** </span> attribute of the <span style="color:pink"> **< input >** </span> element to bind them.
 - <span style="color:pink"> **< select >** </span> Defines a drop-down list
 - <span style="color:pink"> **< option >** </span>
   Defines an option in a drop-down list
-  - Use **mulitple** attribute to allow more than one selection
+  - Use **multiple** attribute to allow more than one selection
+  - If multiple is used, the name must end with []
+    - i.e < select name="pets[]" multiple>
 
   i.e
 
@@ -117,6 +126,8 @@ i.e
   - When form is submitted PHP script retrieves the data via <span style="color:pink"> $\_POST </span> or <span style="color:pink"> $\_GET </span>
   - Script checks each input field against defined rules _(i.e !empty, Validating email formats, URLS)_
   - If data fails validation the appropriate error msg is sent to the user
+- PHP must be run through a server environment like localhost because it needs the server to process the code.
+  Opening files directly or using Live Server bypasses the server, so only front-end code runs, not backend validation.
 
 ### Plain JavaScript Validation (Ex.2)
 
@@ -138,3 +149,10 @@ i.e
 - JQuery Advanced Plug in
   - Includes <span style="color:pink"> object </span> to define advanced validation rules and messages.
   - A method called <span style="color:pink"> phoneRegEx </span> is created to validate US phone numbers (found in class ppt)
+
+### <span style="color:Red"> Importance of Validation:</span>
+
+Front-end validation improves user experience by giving immediate feedback and guiding users to fix errors before submission.
+Back-end validation ensures that the data received is accurate, secure, and meets required criteria, even if front-end validation is bypassed.
+
+Without back-end validation, incorrect or malicious data could be stored, leading to system issues such as users being unable to receive emails, log in, or recover accounts.
