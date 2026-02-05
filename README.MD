@@ -6,6 +6,10 @@
   - [Form Attributes](#form-attributes)
   - [Form Elements](#form-elements)
 - [Form Validation](#Form-Validation)
+  - [Back End Validation](#Back-End-Validation)
+  - [Plain JavaScript Validation](#Plain-JavaScript-Validation)
+  - [jQuery Validation](#jQuery-Validation)
+- [Prototypes & Inheritance](#Prototypes-&-Inheritance)
 
 ## Form Basics
 
@@ -156,3 +160,11 @@ Front-end validation improves user experience by giving immediate feedback and g
 Back-end validation ensures that the data received is accurate, secure, and meets required criteria, even if front-end validation is bypassed.
 
 Without back-end validation, incorrect or malicious data could be stored, leading to system issues such as users being unable to receive emails, log in, or recover accounts.
+
+## Prototypes & Inheritance
+
+### Prototypical Inheritance
+
+- JS utilizes prototypical inheritance rather than classical inheritance found in other languages.
+- Functions in JavaScript are powerful and can mimic features of classical inheritance through prototypes.
+- Functions in JavaScript can act as constructors, which create new objects.

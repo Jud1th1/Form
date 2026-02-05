@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypical Inheritance</title>
+</head>
+<body>
+    <h1> Demonstrating Prototypes &amp; Inheritance </h1>
+    
+</body>
+
+<script>
+
+    function iPhone(){} //constructor
+
+    //Features like Face ID, video capabilities, and default apps are added to the iPhone prototype, showcasing inheritance and method creation.
+    iPhone.prototype.faceId = function () {
+        console.log ("unlock my phone with my face");
+    }
+
+    iPhone.prototype.video = function () {
+        console.log ("take 4k video with my iPhone");
+    }
+
+    iPhone.prototype.stocksApp = function () {
+        console.log ("find out what the stock market is doing");
+    }
+
+    //create an object called myPhone inheriting features from the iPhone prototype.
+    let myPhone = new iPhone();
+    myPhone.faceId();
+    myPhone.video();
+    myPhone.stocksApp();
+
+    myPhone.app= 'instagram';
+    console.log(myPhone);
+
+    //You can override inherited properties, i.e upgrading an app on a phone.
+    //The prototype allows access to the original function even after overriding it.
+ /*    myPhone.stocksApp = function() {
+        console.log("upgrade to Pro version")
+    } */
+
+    //Managing Properties
+        // You can set a property to undefined to effectively remove it, while still retaining the prototype inheritance.
+        // The delete method can also be used to remove properties from an object.
+    myPhone.stocksApp = undefined;
+
+    console.log(myPhone);
+
+    var myAnimals = ["chicken", "dog", "llama", "turtle"];
+    console.log(myAnimals);
+
+    //Notes:
+    //The proto property points to the object from which an instance inherits.
+    //Arrays in JavaScript inherit methods from the array prototype, allowing access to various array methods like push and splice.
+    //Array.prototype.push() is a method that belongs to the array object. (You  can see all the inherited array methods when you inspect an array.)
+    //Any array you make has access to array methods because these methods are inherited through the prototype chain.
+    //Arrays are a type of object and inherit from the object prototype
+    //Example of prototypal inheritance: If you have an object animal with a method speak, and you create a new object dog that inherits from animal, the dog object can use the speak method without having it defined directly on itself.
+    
+
+
+    //Another Example
+    //A variable carManufacturer holds an object with features like the manufacturer's name, model, trim level, and base features.
+    // A variable dealership is created using Object.create(carManufacturer), inheriting all properties from carManufacturer.
+
+    const carManufacturer = {
+        name: "Hyundai",
+        model: "Elantra",
+        trimLevel: "se",
+        baseFeatures: [ "wheels", "engine", "seats"],
+        entertainment: "bluetooth audio system"
+    }
+
+    const dealership = Object.create(carManufacturer);
+
+    // The dealership can add its own features, such as a roof rack or extended warranty, to the cars it receives from the manufacturer.
+    // A new variable myCar is created from the dealership, which can include additional custom features.
+
+    dealership.equipment = "roof rack";
+    dealership.warranty = "extended";
+    dealership.branding = "license plate frame";
+
+    const myCar = Object.create(dealership);
+
+    myCar.custom = "after market trailer hitch";
+    myCar.bumperSticker = "Save the Llamas";
+    myCar.entertainment = "fancy audio system";
+    
+    console.log(myCar.model);
+    console.log(myCar.branding);
+    console.log(myCar.entertainment);
+
+    //The myCar object inherits properties from both the dealership and the manufacturer, allowing access to all features through the prototypical chain.
+    //A for...in loop is introduced to iterate over the properties of the myCar object, displaying both custom and inherited features in order.
+
+    for (const key in myCar){
+        if(myCar.hasOwnProperty(key)){
+            const val = myCar[key];
+        console.log(`key is "${key}" and value is "${val}"`);
+        }  
+    }
+
+    //Notes:
+    // The hasOwnProperty method is a tool that allows developers to check if a property belongs directly to the object.
+
+</script>
+
+
+
+
+</html>
