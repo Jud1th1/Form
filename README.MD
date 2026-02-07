@@ -168,3 +168,25 @@ Without back-end validation, incorrect or malicious data could be stored, leadin
 - JS utilizes prototypical inheritance rather than classical inheritance found in other languages.
 - Functions in JavaScript are powerful and can mimic features of classical inheritance through prototypes.
 - Functions in JavaScript can act as constructors, which create new objects.
+
+## Arrow Functions
+
+- Arrow functions provide a more compact syntax for writing functions in JavaScript.
+- Arrow functions are now officially arrow function expressions
+
+- Simplifying Arrow Functions
+  - If an arrow function has a single parameter, parentheses around the parameter can be omitted for brevity.
+  - For functions that return a single value, the return keyword and curly braces can also be removed, allowing for a one-liner syntax.
+
+Constructor Function Expressions
+
+A constructor function is defined to create an employee object with properties like first name, last name, and job title.
+The this keyword is used to assign values to the object's properties based on the parameters passed to the function.
+Arrow Functions
+
+The lecture encourages converting a traditional function into an arrow function for brevity and readability.
+However, it highlights that arrow functions cannot be used as constructors due to the different scoping of the this keyword.
+Summary and Resources
+
+Arrow functions are compact and expressive but should be used judiciously.
+Additional resources, including articles and MDN Web Docs, are recommended for further learning and practice with arrow functions.
