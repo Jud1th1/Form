@@ -10,6 +10,7 @@
   - [Plain JavaScript Validation](#Plain-JavaScript-Validation)
   - [jQuery Validation](#jQuery-Validation)
 - [Prototypes & Inheritance](#Prototypes-&-Inheritance)
+- [Arrow Functions](#Arrow-functions)
 
 ## Form Basics
 
@@ -178,14 +179,133 @@ Without back-end validation, incorrect or malicious data could be stored, leadin
   - If an arrow function has a single parameter, parentheses around the parameter can be omitted for brevity.
   - For functions that return a single value, the return keyword and curly braces can also be removed, allowing for a one-liner syntax.
 
-Constructor Function Expressions
+- Arrow Functions & <span style="color:salmon"> ** this** </spam>
+  - The <span style="color:pink">**this**</span> keyword refers to the object that is executing the current function.
+  - In constructor functions, <span style="color:pink">**this**</span> is used to assign values to the newly created object based on parameters passed into the function.
+    ```js
+    function Phone(model) {
+      this.model = model;
+    }
+    ```
+  - Arrow functions cannot be used as constructors.
+    - They do not have their own this
+    - They inherit this from the surrounding scope (lexical this)
+    - Using new with an arrow function will throw an error
 
-A constructor function is defined to create an employee object with properties like first name, last name, and job title.
+### Constructor Function Expressions
+
+- A constructor function is used to create multiple objects with shared behavior.
+  - (i.e A constructor function is defined to create an employee object with properties like first name, last name, and job title.)
+
+- Methods added to Constructor.prototype are shared by all instances, saving memory.
+
+  ```js
+  function iPhone() {} // constructor
+
+  iPhone.prototype.faceId = function () {
+    console.log("unlock my phone with my face");
+  };
+  ```
+
+- Any object created with new iPhone() inherits these prototype methods.
+
+**Creating an Instance:**
+
+- When an object is created using new, it:
+  1. Creates an empty object
+  2. Links it to the constructor’s prototype
+  3. Returns the object
+  ```js
+  let myPhone = new iPhone();
+  myPhone.faceId();
+  ```
+
+**Adding & Overriding Properties:**
+
+- You can add new properties directly to an object without affecting the prototype.
+- If an object defines a property with the same name as one on the prototype, it overrides it.
+  ```js
+  myPhone.stocksApp = function () {
+    console.log("upgrade to Pro version");
+  };
+  ```
+- The original prototype method still exists and can be accessed if the override is removed.
+
+**Removing Properties:**
+
+- Setting a property to undefined or using delete removes it from the object, not the prototype.
+- The object still inherits prototype methods unless explicitly overridden.
+  ```js
+  myPhone.stocksApp = undefined;
+  ```
+
+**The **proto** Property**
+
+- <span style="color:pink"> ** proto** </span> is an internal reference pointing to the object’s prototype.
+- It forms the _prototype chain_, which JavaScript uses to resolve properties and methods.
+
+**Arrays & Prototypal Inheritance:**
+
+- Arrays are objects and inherit from <span style="color:pink"> Array.prototype </span>.
+- Methods like <span style="color:pink"> .push(), .splice(),</span> and <span style="color:pink"> .map() </span> come from the array prototype.
+- All arrays automatically have access to these methods through inheritance.
+
+**Object.create() & Inheritance Chains:**
+
+- <span style="color:pink"> Object.create() </span> creates a new object using an existing object as its prototype.
+  ```js
+  const dealership = Object.create(carManufacturer);
+  ```
+- This allows layered inheritance:
+  - Manufacturer → Dealership → Individual Car
+- Properties can be accessed up and down the prototype chain.
+
+**Accessing Inherited Properties:**
+
+- JavaScript looks for properties:
+  1. On the object itself
+  2. Then up the prototype chain
+  3. Until it reaches Object.prototype
+  ```js
+  console.log(myCar.model);
+  ```
+
+**for…in Loops**
+
+- <span style="color:pink"> for…in</span> loops iterate over all enumerable properties, including inherited ones.
+  ```js
+  for (const key in myCar) {
+    console.log(key);
+  }
+  ```
+
+**hasOwnProperty()**
+
+- <span style="color:pink"> hasOwnProperty() </span> checks if a property exists directly on the object, not the prototype.
+- Best practice when looping through objects.
+  ```js
+  if (myCar.hasOwnProperty(key)) {
+    console.log(key);
+  }
+  ```
+
+### Key Takeaways
+
+- Prototypes allow objects to share behavior efficiently.
+- Inheritance in JavaScript is dynamic and flexible, but different from class-based languages.
+- Understanding the prototype chain is critical for debugging, performance, and advanced JS patterns.
+
+### Real-World Analogy
+
+- Prototype = factory default features
+- Object instance = your customized version
+- Override = app update
+- Prototype chain = manufacturer → dealership → owner mods
+
 The this keyword is used to assign values to the object's properties based on the parameters passed to the function.
-Arrow Functions
 
-The lecture encourages converting a traditional function into an arrow function for brevity and readability.
 However, it highlights that arrow functions cannot be used as constructors due to the different scoping of the this keyword.
+
 Summary and Resources
 
 Arrow functions are compact and expressive but should be used judiciously.
