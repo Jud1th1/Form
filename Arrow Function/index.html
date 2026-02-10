@@ -10,28 +10,28 @@
 <h1>Arrow Function</h1>
 
 <script>
-    //1. EXAMPLE FUNCTION
-    /* function makeUpperCase (aString){
+    /* //1. EXAMPLE FUNCTION
+    function makeUpperCase (aString){
         return aString.toUpperCase();
     }
 
-    console.log(makeUpperCase("here is a string")); */
+    console.log(makeUpperCase("here is a string"));
 
 
     //2. FUNCTION EXPRESSION
-    /* const makeUpperCase = function(aString){
+    const makeUpperCase = function(aString){
         return aString.toUpperCase();
     }
 
-    console.log(makeUpperCase("here is a string")); */
+    console.log(makeUpperCase("here is a string"));
 
 
     //3. TURN INTO ARROW FUNCTION
-    /* const makeUpperCase = (aString) => { 
+     const makeUpperCase = (aString) => { 
             return aString.toUpperCase();
         }
 
-    console.log(makeUpperCase("here is a string")); */
+    console.log(makeUpperCase("here is a string"));
 
 
     //4. SIMPLIFY ARROW FUNCTION
@@ -41,12 +41,12 @@
     //since this statement only does one thing (return a value) we can remove curly braces and return keyword
     const makeUpperCase = aString => aString.toUpperCase();
     
-    console.log(makeUpperCase("here is a string"));
+    console.log(makeUpperCase("here is a string"));*/
 
 
 
 
-    //1. EXAMPLE 2- WITH MORE THAN ONE PARAMETER (USE THE PARENTHESES)
+    /* //1. EXAMPLE 2- WITH MORE THAN ONE PARAMETER (USE THE PARENTHESES)
     const fullname = (fname, lname) => `${fname} ${lname}`;
 
     console.log(fullname("Judith", "Jean-Francois"));
@@ -58,7 +58,27 @@
         return `${fname} ${lname}`;
     }
 
-    console.log(fullname2());
+    console.log(fullname2()); */
+
+
+
+
+    //1. EXAMPLE 3 CONSTRUCTOR FUNCTION EXAMPLE
+    const Employee = function (fname, lname, jobTitle){
+        this.fname = fname;
+        this.lname = lname;
+        this.position = jobTitle;
+        //Turn this into an arrow function:
+        /* this.fullName = function (){
+            return `${fname} ${lname}`;
+        } */
+       this.fullName = ()=> `${fname} ${lname}`;
+    }
+
+    const id1234 = new Employee('Judith', 'Jean-Francois', 'Developer');
+
+    console.log(id1234.fname);
+    console.log(id1234.fullName());
 
 </script>
 </body>
