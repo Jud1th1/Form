@@ -241,8 +241,8 @@ Without back-end validation, incorrect or malicious data could be stored, leadin
 
 **The **proto** Property**
 
-- <span style="color:pink"> ** proto** </span> is an internal reference pointing to the object’s prototype.
-- It forms the _prototype chain_, which JavaScript uses to resolve properties and methods.
+- <span style="color:pink"> _ proto_ </span> is an internal reference pointing to the object’s prototype.
+- It forms the _ prototype chain _, which JavaScript uses to resolve properties and methods.
 
 **Arrays & Prototypal Inheritance:**
 
